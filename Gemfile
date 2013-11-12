@@ -43,8 +43,7 @@ gem "guard-livereload"
 gem "rack-livereload"
 
 gem "nokogiri"
-gem "smooth-io", :github => "datapimp/smooth", :branch => "master"
-gem "skypager", :github => "datapimp/skypager", :branch => "master"
+gem "datapimp", :github => "datapimp/datapimp", :branch => "master"
 
 gem 'redis'
 gem 'redis-objects'
