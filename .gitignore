@@ -1,0 +1,6 @@
+/log/*.log
+/config/settings.yml
+/config/database.yml
+/tmp
+/db/*.sqlite3
+/public/system

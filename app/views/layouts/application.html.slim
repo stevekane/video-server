@@ -1,0 +1,46 @@
+doctype html
+html
+  head
+    title Smooth
+    meta name="viewport" content="width=device-width, initial-scale=1"
+
+    meta name="breakpoint" content="small" media="only screen and (max-width: 420px)"
+    meta name="breakpoint" content="medium" media="only screen and (max-width: 768px)"
+    meta name="breakpoint" content="large" media="only screen and (min-width: 769px)"
+    meta name="breakpoint" content="retina" media="only screen and (-webkit-min-device-pixel-ratio : 2)"
+    meta name="breakpoint" content="landscape" media="only screen and (orientation: landscape)"
+    meta name="breakpoint" content="portrait" media="only screen and (orientation: portrait)"
+
+    = csrf_meta_tags
+
+    = yield :head
+
+    = google_webfonts_link_tag :lobster => [700]
+    = stylesheet_link_tag 'application'
+
+    javascript:
+      window.ApplicationEnvironment = '#{ Rails.env }';
+
+    - if Rails.env.production?
+      script type="text/javascript" src="//datapimp.com/cdn/javascripts/metaquery.js"
+      script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"
+
+      javascript:
+        Modernizr.load([{
+          test: ( !!window.matchMedia ),
+          nope: ["//datapimp.com/cdn/javascripts/match-media-polyfill.js"]
+        }]);
+    - else
+
+      javascript:
+        Modernizr.load([{
+          test: ( !!window.matchMedia ),
+          nope: ["#{ asset_path('match-media-polyfill.js') }"]
+        }]);
+
+    = render :partial => "shared/javascript_head"
+
+  body id="#{ controller_name }_#{ action_name }" class="#{ controller_name }" data-controller=controller_name data-action=action_name
+    .container
+      = yield
+

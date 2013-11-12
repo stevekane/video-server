@@ -1,0 +1,5 @@
+- if user_signed_in?
+  javascript:
+    window.CurrentUser = #{ current_user.auth_attributes.to_json.html_safe };
+
+= yield(:javascript_head)

@@ -1,0 +1,13 @@
+dl
+  dt State
+  dd = @subscription.state
+  dt Creation Date
+  dd = @subscription.created_at.strftime("%m/%d/%Y")
+  dt Next Bill Date
+  dd = @subscription.next_bill_date.strftime("%m/%d/%Y")
+  dt Next Bill Amount
+  dd = number_to_currency(@subscription.next_bill_amount)
+  dt Credit Card Last 4
+  dd = @subscription.credit_card_last_four
+  dt Credit Card Expiration Date
+  dd = @subscription.credit_card_expiration_date.strftime("%m/%d/%Y")

@@ -1,0 +1,13 @@
+.bottom-menu.bottom-menu-inverse
+  .container
+    .row-fluid
+      .span2
+        a.brand href=root_path
+          | Brand 
+      - if user_signed_in?
+        .span8
+          ul.bottom-links
+          .pull-right
+            ul.nav
+              li
+                = link_to "Logout", destroy_user_session_path, :method => :delete 

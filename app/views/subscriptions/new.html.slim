@@ -1,0 +1,25 @@
+-content_for :head do
+  = tag :meta, name: "stripe-key", content: ::Smoothie::AppSettings::StripePublicKey
+  = stylesheet_link_tag "subscriptions"
+
+- content_for :javascript_head do
+ = javascript_include_tag "https://js.stripe.com/v2/"
+ = javascript_include_tag "subscriptions"
+
+=form_tag subscriptions_path, id: "payment-form", class: "form-vertical" do |f|
+  fieldset
+    .payment-errors.alert.alert-error
+    .control-group
+      = label_tag :plan, "Plan"
+      = select_tag :plan_id, options_from_collection_for_select(@plans, :id, :name)
+    .control-group
+      = label_tag :card_number, "Credit Card Number"
+      = text_field_tag :card_number, nil, name: nil, data: {stripe: "number"}
+    .control-group
+      = label_tag :card_code, "Security Code on Card (CVV)"
+      = text_field_tag :card_code, nil, name: nil, data: {stripe: "cvc"}
+    .control-group
+      = label_tag :card_month, "Card Expiration"
+      = select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month", data: {stripe: "exp-month"}}
+      = select_year nil, {start_year: Date.today.year, end_year: Date.today.year + 15}, {name: nil, id: "card_year", data: {stripe: "exp-year"}}
+    = button_tag "Submit Payment", class: "btn btn-primary"

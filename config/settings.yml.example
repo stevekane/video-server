@@ -1,0 +1,9 @@
+defaults: &defaults
+  github_client_id: '0f2144970476b4430c57'
+  github_client_secret: '297ebc19a60d2d0d06af3a473cbcbfba9f938042'
+  stripe_secret_key: 'sk_test_oOGVdecAME5y0VStYeqSCd2B'
+  stripe_public_key: 'pk_test_CkF70q9wk6xIxWtxYnJx6bb7'
+
+development:
+  <<: *defaults
+
