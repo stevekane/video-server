@@ -4,10 +4,20 @@ module Subscriptions
     required do
       model  :user
       string :stripe_token
-      integer :plan_id
+      string :plan_id
     end
 
     def execute
+      begin
+        subscription = integrate_with_stripe
+      rescue Stripe::CardError
+        add_error(:stripe_token, :card_error, "There was an error with the credit card.")
+      end
+
+      subscription
+    end
+
+    def integrate_with_stripe
       stripe_customer = Stripe::Customer.create(
         card:        stripe_token,
         plan:        plan_id.to_s,

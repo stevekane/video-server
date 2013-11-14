@@ -15,9 +15,6 @@ html
 
     = yield :head
 
-    = google_webfonts_link_tag :lobster => [700]
-    = stylesheet_link_tag 'application'
-
     javascript:
       window.ApplicationEnvironment = '#{ Rails.env }';
 
@@ -31,6 +28,8 @@ html
           nope: ["//datapimp.com/cdn/javascripts/match-media-polyfill.js"]
         }]);
     - else
+      
+      = javascript_include_tag 'metaquery', 'modernizr'
 
       javascript:
         Modernizr.load([{
@@ -40,7 +39,10 @@ html
 
     = render :partial => "shared/javascript_head"
 
-  body id="#{ controller_name }_#{ action_name }" class="#{ controller_name }" data-controller=controller_name data-action=action_name
+  body data-spy="scroll" data-target=".main-nav" data-offset="73" id="#{ controller_name }_#{ action_name }" class="#{ controller_name }" data-controller=controller_name data-action=action_name
+    .container
+      = render "shared/messages"
+
     .container
       = yield
 

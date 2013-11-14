@@ -7,7 +7,7 @@ module Smoothie
 
     GithubClientId =                env.github_client_id
     GithubClientSecret =            env.github_client_secret
-    StripeSecretKey =               env.stripe_secret_key
+    StripeSecretKey =               env.stripe_private_key
     StripePublicKey =               env.stripe_public_key
   end
 end

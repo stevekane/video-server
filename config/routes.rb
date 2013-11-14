@@ -1,4 +1,5 @@
 Smoothie::Application.routes.draw do
+  root :to => "home#root"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 

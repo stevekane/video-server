@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Booom!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+        <%= stylesheet_link_tag 'bootstrap/css/bootstrap','flat-theme/magnific-popup','flat-theme/flat-ui','flat-theme/main' %>
+        <link rel="shortcut icon" href="images/favicon.ico">
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+        <!--[if lt IE 9]>
+          <%= javascript_include_tag 'html5shiv.js' %>
+        <![endif]-->
+    </head>
+  
+    
+    <!-- Scrollspy set in the body -->
+    <body id="home" data-spy="scroll" data-target=".main-nav" data-offset="73">
+    <%= yield %>
+
+    <section id="footer">
+        <div class="bottom-menu-inverse">
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Copyright &copy; 2013 Booom! Designed by <a href="http://www.simonswiss.com" target="_blank">simonswiss</a>.</p>
+                    </div>
+
+                    <div class="col-md-6 social">
+                        <ul class="bottom-icons">
+                            <li>
+                              <a href="#" class="fui-facebook"></a>
+                            </li>
+                             <li>
+                              <a href="#" class="fui-twitter"></a>
+                            </li>
+                             <li>
+                              <a href="#" class="fui-pinterest"></a>
+                            </li>
+                             <li>
+                              <a href="#" class="fui-googleplus"></a>
+                            </li>
+                             <li>
+                              <a href="#" class="fui-dribbble"></a>
+                            </li>
+                             <li>
+                              <a href="#" class="fui-vimeo"></a>
+                            </li>
+                          </ul>                      
+                    </div>
+                </div>
+            
+            </div><!-- /row -->
+        </div><!-- /container -->
+
+    </section>
+    
+    <%= javascript_include_tag 'marketing-dependencies' %>
+
+  </body>
+</html>

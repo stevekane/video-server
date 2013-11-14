@@ -1,9 +1,8 @@
 class SubscriptionsController < ApplicationController
-
   before_filter :authenticate_user!
+  before_filter :get_plans
 
   def new
-    @plans        = Stripe::Plan.all
     @subscription = current_user.subscriptions.build
   end
 
@@ -12,7 +11,8 @@ class SubscriptionsController < ApplicationController
     if outcome.success?
       redirect_to subscription_path(outcome.result)
     else
-      flash.now.alert "There was an error creating the subscription."
+      binding.pry
+      flash.now[:notice] = "There was an error creating the subscription."
       render :new
     end
   end
@@ -20,5 +20,11 @@ class SubscriptionsController < ApplicationController
   def show
     @subscription = current_user.subscriptions.find(params[:id])
   end
+
+  protected
+
+    def get_plans
+      @plans ||= Stripe::Plan.all
+    end
 
 end
