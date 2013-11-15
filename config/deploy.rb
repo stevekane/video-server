@@ -54,7 +54,7 @@ end
 namespace :sym_link do
   desc 'sym link database.yml'
   task :database do
-    run "cd #{current_release}/config && ln -s #{deploy_to}/shared/private/config/database.yml database.yml"
+    run "cd #{current_release}/config && ln -sf #{deploy_to}/shared/private/config/database.yml database.yml"
   end
 
   desc 'sym link production logs'
@@ -64,7 +64,7 @@ namespace :sym_link do
 
   desc 'sym link settings file'
   task :settings do
-    run "cd #{current_release}/config && ln -s #{deploy_to}/shared/private/config/settings.yml settings.yml"
+    run "cd #{current_release}/config && ln -sf #{deploy_to}/shared/private/config/settings.yml settings.yml"
   end
 end
 
