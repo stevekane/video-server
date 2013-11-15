@@ -33,7 +33,7 @@ gem "bootstrap_form"
 gem "bootstrap-sass-rails"
 gem "font-awesome-rails"
 gem "google-webfonts"
-
+gem "non-stupid-digest-assets"
 gem "guard"
 
 gem "nokogiri"
