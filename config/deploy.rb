@@ -20,6 +20,7 @@ set :deploy_via, :remote_cache
 before "deploy:assets:precompile", "sym_link:database"
 before "deploy:assets:precompile", "sym_link:settings"
 before "deploy:assets:precompile", "sym_link:logs"
+before "deploy:assets:precompile", "sym_link:app"
 
 before "deploy:restart", "db:migrate"
 
@@ -60,6 +61,11 @@ namespace :sym_link do
   desc 'sym link production logs'
   task :logs do
     run "cd #{current_release} && rm -rf log && ln -s #{deploy_to}/shared/log log"
+  end
+
+  desc 'sym link production app'
+  task :app do
+    run "cd #{current_release}/public && rm -rf app && ln -s /home/deploy/app app"
   end
 
   desc 'sym link settings file'
