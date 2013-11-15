@@ -27,11 +27,6 @@ gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem 'handlebars'
-gem 'ember-rails'
-gem 'ember-source'
-gem 'emblem-rails'
-gem 'haml-rails'
 gem "slim-rails"
 gem "bootstrap_form"
 gem "bootstrap-sass-rails"
@@ -39,8 +34,6 @@ gem "font-awesome-rails"
 gem "google-webfonts"
 
 gem "guard"
-gem "guard-livereload"
-gem "rack-livereload"
 
 gem "nokogiri"
 gem "datapimp", :github => "datapimp/datapimp", :branch => "master"
@@ -85,7 +78,6 @@ gem "rspec_api_documentation"
 gem 'capistrano'
 gem 'capistrano-ext'
 gem 'rvm-capistrano'
-gem 'hipchat'
 
 ## Payment Processing
 gem 'stripe', '~> 1.8.8'
@@ -97,11 +89,8 @@ group :test, :development do
   gem "factory_girl_rails"
   gem "pry-rails"
   gem "ffaker"
-  gem "capybara"
-  gem "launchy"
   gem "database_cleaner"
   gem "guard-rspec"
-  gem "debugger"
   gem "pry-rails"
   gem "pry-nav"
   gem "quiet_assets"
